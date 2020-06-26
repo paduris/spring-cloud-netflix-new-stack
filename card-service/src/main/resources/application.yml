@@ -1,0 +1,22 @@
+server:
+  port: 9080
+spring:
+  application:
+    name: card-service
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+logging:
+  level:
+    org.springframework : info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - metrics
+          - prometheus
+
+

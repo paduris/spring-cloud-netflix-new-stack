@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="eureka-server" />
+        <module name="fraud-verifier" />
+        <module name="gateway-proxy" />
+        <module name="user-service" />
+        <module name="Ignored-service" />
+        <module name="card-service" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Ignored-service" options="-parameters" />
+      <module name="card-service" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="fraud-verifier" options="-parameters" />
+      <module name="gateway-proxy" options="-parameters" />
+      <module name="user-service" options="-parameters" />
+    </option>
+  </component>
+</project>
