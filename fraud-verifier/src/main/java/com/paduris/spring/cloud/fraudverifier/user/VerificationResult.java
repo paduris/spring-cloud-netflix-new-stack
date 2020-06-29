@@ -1,8 +1,6 @@
 package com.paduris.spring.cloud.fraudverifier.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 /**
  * @author paduris
@@ -11,12 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VerificationResult {
-
+    @Getter
     private String userId;
-    private String userName;
-
-    public VerificationResult(String userId, Status verificationFailed) {
-    }
+    @Getter
+    private Status status;
 
     public static VerificationResult passed(String userId) {
         return new VerificationResult(userId, Status.VERIFICATION_PASSED);

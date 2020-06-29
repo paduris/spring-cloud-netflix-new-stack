@@ -1,16 +1,16 @@
 package com.paduris.spring.cloud.cardservice.verification;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 public class VerificationResult {
 
     @Getter
+    @NonNull
     private String userId;
     @Getter
+    @NonNull
     private Status status;
 
     public static VerificationResult passed(String userId) {

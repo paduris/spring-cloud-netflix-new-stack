@@ -27,17 +27,17 @@ public class CardApplicationService {
     private final IgnoredServiceClient ignoredServiceClient;
 
     public Mono<ApplicationResult> registerApplication(CardApplicationDTO applicationDTO) {
-        return userServiceClient.registerUser(applicationDTO.user)
-                .map(user -> new CardApplication(UUID.randomUUID().toString(), user, applicationDTO.cardCapacity))
+        return this.userServiceClient
+                .registerUser(applicationDTO.getUser())
+                .map(user -> new CardApplication(UUID.randomUUID().toString(), user, applicationDTO.getCardCapacity()))
                 .flatMap(this::verifyApplication);
-
     }
 
     public Mono<ApplicationResult> verifyApplication(CardApplication cardApplication) {
         return ignoredServiceClient
                 .callIgnoredService()
                 .doOnNext(log::info)
-                .then(verificationServiceClient
+                .then(this.verificationServiceClient
                         .verify(new VerificationApplication(cardApplication.getUserId(), cardApplication.getCardLimit()))
                         .map(verificationResult -> this.updateApplication(verificationResult, cardApplication)));
     }

@@ -27,6 +27,7 @@ public class CardApplicationVerficationController {
     @GetMapping("/verify")
     public ResponseEntity<VerificationResult> verifyCard(@RequestParam String userId,
                                                          @RequestParam BigDecimal cardLimit) {
-        return ResponseEntity.ok(cardApplicationVerficationService.verifyCard(userId, cardLimit));
+        final VerificationResult result = cardApplicationVerficationService.verifyCard(userId, cardLimit);
+        return ResponseEntity.ok(result);
     }
 }

@@ -3,6 +3,8 @@ package com.paduris.spring.cloud.userservice;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 /**
  * @author paduris
  */
@@ -11,7 +13,7 @@ import lombok.Data;
 public class User {
     private String userId;
     private String userName;
-    private String dateOfBirth;
+    private LocalDate dateOfBirth;
     private Status status;
     public enum Status {
         NEW,
